@@ -8,9 +8,12 @@ export function GetEmbeddingData(
     days: number[],
     weeks: number[],
     months: number[],
-    rndValue: number) {
-
+    rndValue: number
+)
+{
     const [data, setData] = useState<number[][]>([[1, 1, 1]]);
+    const [history, setHistory] = useState<{ data: number[][]; algoName: string; n_component: number }[]>([{data: data, algoName: algorithm, n_component: n }]);
+
     const hoursParams = hours.map(hour => `hours=${hour}`).join('&');
     const daysParams = days.map(day => `days=${day}`).join('&');
     const weeksParams = weeks.map(week => `weeks=${week}`).join('&');
@@ -30,6 +33,7 @@ export function GetEmbeddingData(
                 const fetchedData = await response.json();
                 setData(fetchedData);
                 //console.log(fetchedData)
+                setHistory(prevHistory => [data, ...prevHistory].filter(entry => entry !== null) as any);
 
             } catch (error) {
                 console.error("Error fetching the image:", error);
@@ -42,5 +46,8 @@ export function GetEmbeddingData(
         // eslint-disable-next-line
     }, [rndValue]);
 
-    return data;
+    return {
+        "data": data,
+        "history": history
+    };
 }

@@ -169,6 +169,10 @@ code {
   color: #61dafb;
 }
 
+.space-below {
+  margin-bottom: 10px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
