@@ -126,30 +126,6 @@ def plot_results(algo_results, algo_name):
     plt.ylabel(f"{algo_name.upper()} Component 2")
     plt.savefig(f"{algo_name}_plot.png")
 
-# FastAPI endpoint to choose dimension reduction algorithm and number of components
-@app.get("/visualization/")
-async def choose_algo(algo_name: str, n: int):
-    # Load data from file if it exists
-    reduced_data = load_reduction_data(algo_name, n)
-    if reduced_data is not None:
-        return reduced_data.tolist()
-
-    # Otherwise, perform dimension reduction
-    filename = os.path.join("raw_data/bevmo-embeddings.csv")
-    input_data = load_data(filename)
-
-    # Process checkouts
-    processed_data = process_checkouts(input_data)
-
-    # Reduce dimensions and plot the results
-    reduced_data, algo_name = dimension_reduction(processed_data, algo_name, n)
-    #plot_results(reduced_data, algo_name)
-
-    # Save the reduced data to file
-    save_data(reduced_data, algo_name, n)
-
-    # Return the reduced data as a list of lists (or a list of tuples)
-    return reduced_data.tolist()
 
 # Function to generate filter and return results
 def generate_filter_and_return(input_data, reduced_data, hours, days, weeks, months):

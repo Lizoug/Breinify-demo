@@ -8,10 +8,10 @@ export default function Home() {
                 <div className="page-container">
                     <Row justify={"space-around"}>
                         <Col className="title-col first-title-col" span={11}>
-                            <h2 className="page-h2"></h2>
+                            <h2 className="page-h2">TEST?</h2>
                         </Col>
                         <Col className="title-col" span={11}>
-                            <h2 className="page-h2"></h2>
+                            <h2 className="page-h2">TEST?</h2>
                         </Col>
                     </Row>
                     <Row justify={"space-around"}>

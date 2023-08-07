@@ -1,30 +1,29 @@
 import { Menu, Row, Col } from "antd";
 import React, { useState} from 'react';
-import { HomeOutlined, DotChartOutlined, UserOutlined } from '@ant-design/icons';
+import { HomeOutlined, DotChartOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 
 
-const items: MenuProps['items'] = [
-    {
-        label:
-            <a href="/">
-                Home
-            </a>,
-        key: '/',
-        icon: <HomeOutlined />,
-    },
-    {
-        label:
-            <a href="/Analysis">
-                Analysis
-            </a>,
-        key: '/Analysis',
-        icon: <DotChartOutlined />,
+export default function PageHeader() {
+    const items: MenuProps['items'] = [
+        {
+            label:
+                <a href="/">
+                    Home
+                </a>,
+            key: '/',
+            icon: <HomeOutlined />,
+        },
+        {
+            label:
+                <a href="/Analysis">
+                    Analysis
+                </a>,
+            key: '/Analysis',
+            icon: <DotChartOutlined />,
 
-    }
-];
-
-export function  PageHeader() {
+        }
+    ];
 
     const [current, setCurrent] = useState(window.location.pathname);
 

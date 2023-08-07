@@ -1,19 +1,27 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 
-export function getEmbeddingData(
+export function GetEmbeddingData(
     algorithm: string,
     n: number,
-    hoursParams: number[],
-    daysParams: number[],
-    weeksParams: number[],
-    monthsParams: number[]) {
+    hours: number[],
+    days: number[],
+    weeks: number[],
+    months: number[],
+    rndValue: number) {
+
     const [data, setData] = useState<number[][]>([[1, 1, 1]]);
+    const hoursParams = hours.map(hour => `hours=${hour}`).join('&');
+    const daysParams = days.map(day => `days=${day}`).join('&');
+    const weeksParams = weeks.map(week => `weeks=${week}`).join('&');
+    const monthsParams = months.map(month => `months=${month}`).join('&');
     const apiUrl = `http://localhost:8000/visualization/time/?algo_name=${algorithm}&n=${n}&${hoursParams}&${daysParams}&${weeksParams}&${monthsParams}`;
 
+    console.log(hoursParams, weeksParams, daysParams, monthsParams)
+    console.log(apiUrl)
 
     useEffect(() => {
-        const fetchImage = async () => {
+        const fetchData = async () => {
             try {
                 const response = await fetch(apiUrl);
                 if (!response.ok) {
@@ -21,6 +29,7 @@ export function getEmbeddingData(
                 }
                 const fetchedData = await response.json();
                 setData(fetchedData);
+                //console.log(fetchedData)
 
             } catch (error) {
                 console.error("Error fetching the image:", error);
@@ -29,9 +38,9 @@ export function getEmbeddingData(
         };
 
         // Call the fetchImage function
-        fetchImage();
+        fetchData();
         // eslint-disable-next-line
-    }, [apiUrl]);
+    }, [rndValue]);
 
     return data;
 }

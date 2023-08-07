@@ -23,11 +23,11 @@ export default function VizScatter(data: number[][], fsize: number, algoName: st
             }
             // If the chart instance ref is not null, set the option for the chart
             if (chartInstance.current !== null) {
-                console.log("Setting option for chart", option);
+                // console.log("Setting option for chart", option);
                 chartInstance.current.setOption(option);
             }
         }
-    }, [data, fsize, algoName, n_component, includeToolbox]); // dependencies of the effect
+    }, [data, fsize, algoName, n_component, includeToolbox, option]); // dependencies of the effect
 
     // Render a div element that will contain the chart
     return (
