@@ -6,7 +6,7 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-import umap.umap_ as umap
+import umap
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 from typing import List
