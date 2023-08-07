@@ -1,18 +1,17 @@
 import React, { useEffect, useRef } from 'react';
-import { optionVizScatter2D, optionVizScatter3D } from "./charts_option";
+import { optionVizScatter } from "./charts_option";
 import * as echarts from 'echarts';
 import 'echarts-for-react';
 
 // Define a function component for scatter plots visualization
-function VizScatter({ data, fsize, algoName, n_component, includeToolbox, dim }: { data: [number, number][] | [number, number, number][], fsize: number, algoName: string, n_component: number, includeToolbox: boolean, dim: 2 | 3 }) {
+export default function VizScatter(data: number[][], fsize: number, algoName: string, n_component: number, includeToolbox: boolean) {
     // Create a ref to hold a reference to the HTML div element that will contain the chart
     const chartRef = useRef<HTMLDivElement | null>(null);
     // Create a ref to hold a reference to the ECharts instance
     const chartInstance = useRef<echarts.ECharts | null>(null);
 
     // Generate chart options based on the dimension of the data (2D or 3D)
-    const option = dim === 2 ? optionVizScatter2D(data as [number, number][], fsize, algoName, n_component, includeToolbox) :
-        optionVizScatter3D(data as [number, number, number][], fsize, algoName, n_component, includeToolbox);
+    const option = optionVizScatter(data as [number, number][], fsize, algoName, n_component, includeToolbox)
 
     // Use useEffect hook to initialize the ECharts instance and update the chart when the component mounts or updates
     useEffect(() => {
@@ -28,22 +27,10 @@ function VizScatter({ data, fsize, algoName, n_component, includeToolbox, dim }:
                 chartInstance.current.setOption(option);
             }
         }
-    }, [data, fsize, algoName, n_component, includeToolbox, dim]); // dependencies of the effect
+    }, [data, fsize, algoName, n_component, includeToolbox]); // dependencies of the effect
 
     // Render a div element that will contain the chart
     return (
         <div ref={chartRef} style={{ width: "100%", height: 400 }} />
     );
-}
-
-// Define a function component for 2D scatter plots
-export function VizScatter2D(props: { data: [number, number][], fsize: number, algoName: string, n_component: number, includeToolbox: boolean }) {
-    // Render the VizScatter component with 'dim' set to 2
-    return <VizScatter {...props} dim={2} />;
-}
-
-// Define a function component for 3D scatter plots
-export function VizScatter3D(props: { data: [number, number, number][], fsize: number, algoName: string, n_component: number, includeToolbox: boolean }) {
-    // Render the VizScatter component with 'dim' set to 3
-    return <VizScatter {...props} dim={3} />;
 }
