@@ -2,8 +2,10 @@ import VizScatter from "../../visualization/charts";
 import React, { useState } from "react";
 import { Row, Col, Slider } from 'antd';
 import {GetEmbeddingData} from "../../visualization/chart_data";
-import {Simulate} from "react-dom/test-utils";
-import toggle = Simulate.toggle;
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import { Switch, Space } from 'antd';
+import { useEffect } from "react";
+
 
 
 // Analysis is a React component for visualizing data based on different algorithms and parameters
@@ -17,11 +19,20 @@ export default function Analysis() {
     const [rndValue, setRndValue] = useState<number>(0)
     const [filterToggle, setFilterToggle] = useState<boolean>(false)
 
-    const data: any = GetEmbeddingData(algorithm, n, hours, days, weeks, months, rndValue)
+
+    const { data, history } = GetEmbeddingData(algorithm, n, hours, days, weeks, months, rndValue);
+
+    const [mainVisualizationData, setMainVisualizationData] = useState<number[][]>([[]]);
+
+    // whenever data changes, the mainVisualizationData state variable is updated with the new data
+    useEffect(() => {
+        setMainVisualizationData(data);
+    }, [data]);
 
     const handleFilterClick = () => {
         setRndValue(Math.random())
     }
+
 
     const handleAlgorithmChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setAlgorithm(event.target.value);
@@ -52,14 +63,40 @@ export default function Analysis() {
         console.log(months)
     };
 
+
     return (
         <Row justify="space-evenly" className="container">
             <Col span={12} className="A-main Box-Design">
                 <h2 className="section-title">Main Visualization</h2>
-                {VizScatter(data, 12, algorithm, n, true)}
+                <VizScatter
+                    data={mainVisualizationData}
+                    fsize={12}
+                    algoName={algorithm}
+                    n_component={n}
+                    includeToolbox={true}
+                />
             </Col>
             <Col span={6} className="B-history Box-Design">
                 <h2 className="section-title">History</h2>
+                {history.map((entry, index) => (
+                    <div
+                        key={index}
+                        onClick={() => {
+                            setMainVisualizationData(entry.data);
+                            setAlgorithm(entry.algoName);
+                            setN(entry.n_component);
+                        }}
+                    >
+                        <VizScatter
+                            data={entry.data}
+                            fsize={5}
+                            algoName={entry.algoName}
+                            n_component={entry.n_component}
+                            includeToolbox={false}
+                        />
+                    </div>
+                ))}
+
             </Col>
             <Col span={5} className="C-option Box-Design">
                 <h2 className="section-title">Event Parameters</h2>
@@ -83,10 +120,25 @@ export default function Analysis() {
                         className="custom-input"
                     />
                 </Row>
-
-                {filterToggle && <Row>
+                <Row>
+                    <label>Filter  </label>
+                </Row>
+                <Row className="space-below">
+                    <Space direction="vertical">
+                        <Switch
+                            checked={filterToggle}
+                            checkedChildren={<CheckOutlined />}
+                            unCheckedChildren={<CloseOutlined />}
+                            onChange={(checked) => setFilterToggle(checked)}
+                            defaultChecked
+                        />
+                    </Space>
+                </Row>
+                {filterToggle && <>
                     <Row className="input-row">
                         <label className="input-label">Hours:</label>
+                    </Row>
+                    <Row>
                         <Slider
                             range
                             min={0}
@@ -99,6 +151,8 @@ export default function Analysis() {
 
                     <Row className="input-row">
                         <label className="input-label">Days:</label>
+                    </Row>
+                    <Row>
                         <Slider
                             range
                             min={0}
@@ -111,6 +165,8 @@ export default function Analysis() {
 
                     <Row className="input-row">
                         <label className="input-label">Weeks:</label>
+                    </Row>
+                    <Row>
                         <Slider
                             range
                             min={0}
@@ -123,6 +179,8 @@ export default function Analysis() {
 
                     <Row className="input-row">
                         <label className="input-label">Months:</label>
+                    </Row>
+                    <Row>
                         <Slider
                             range
                             min={0}
@@ -132,14 +190,12 @@ export default function Analysis() {
                             className="custom-input"
                         />
                     </Row>
-                </Row>
+                </>
                 }
-
-
-
                 <Row className="input-row">
-                    <button onClick={handleFilterClick} className="custom-button">Filter</button>
+                    <button onClick={handleFilterClick} className="custom-button">Visualize</button>
                 </Row>
+
             </Col>
         </Row>
     );

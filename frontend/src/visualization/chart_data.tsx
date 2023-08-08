@@ -8,9 +8,12 @@ export function GetEmbeddingData(
     days: number[],
     weeks: number[],
     months: number[],
-    rndValue: number) {
+    rndValue: number
+)
+{
+    const [data, setData] = useState<number[][]>([[]]);
+    const [history, setHistory] = useState<{ data: number[][]; algoName: string; n_component: number }[]>([]);
 
-    const [data, setData] = useState<number[][]>([[1, 1, 1]]);
     const hoursParams = hours.map(hour => `hours=${hour}`).join('&');
     const daysParams = days.map(day => `days=${day}`).join('&');
     const weeksParams = weeks.map(week => `weeks=${week}`).join('&');
@@ -29,18 +32,29 @@ export function GetEmbeddingData(
                 }
                 const fetchedData = await response.json();
                 setData(fetchedData);
-                //console.log(fetchedData)
-
             } catch (error) {
                 console.error("Error fetching the image:", error);
-                // You can add error handling logic here if needed
             }
         };
 
-        // Call the fetchImage function
         fetchData();
-        // eslint-disable-next-line
     }, [rndValue]);
 
-    return data;
+    // Move history updating to a separate useEffect
+    useEffect(() => {
+        // Check if data is not empty
+        if (data && data.length > 0 && data[0] && data[0].length > 0) {
+            setHistory(prevHistory => [
+                ...prevHistory,
+                { data: data, algoName: algorithm, n_component: n }
+            ]);
+        }
+    }, [data]);
+
+
+    return {
+        "data": data,
+        "history": history
+    };
+
 }
