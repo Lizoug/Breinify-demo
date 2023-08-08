@@ -3,8 +3,17 @@ import { optionVizScatter } from "./charts_option";
 import * as echarts from 'echarts';
 import 'echarts-for-react';
 
+
+type VizScatterProps = {
+    data: number[][],
+    fsize: number,
+    algoName: string,
+    n_component: number,
+    includeToolbox: boolean
+};
+
 // Define a function component for scatter plots visualization
-export default function VizScatter(data: number[][], fsize: number, algoName: string, n_component: number, includeToolbox: boolean) {
+export default function VizScatter({data, fsize, algoName, n_component, includeToolbox}: VizScatterProps) {
     // Create a ref to hold a reference to the HTML div element that will contain the chart
     const chartRef = useRef<HTMLDivElement | null>(null);
     // Create a ref to hold a reference to the ECharts instance

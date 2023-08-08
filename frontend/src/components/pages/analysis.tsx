@@ -4,8 +4,8 @@ import { Row, Col, Slider } from 'antd';
 import {GetEmbeddingData} from "../../visualization/chart_data";
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { Switch, Space } from 'antd';
-// import toggle = Simulate.toggle;
-// import {Simulate} from "react-dom/test-utils";
+import { useEffect } from "react";
+
 
 
 // Analysis is a React component for visualizing data based on different algorithms and parameters
@@ -19,12 +19,20 @@ export default function Analysis() {
     const [rndValue, setRndValue] = useState<number>(0)
     const [filterToggle, setFilterToggle] = useState<boolean>(false)
 
-    const data: number[][] = GetEmbeddingData(algorithm, n, hours, days, weeks, months, rndValue).data
-    const history: {data: number[][]; algoName: string; n_component: number}[] = GetEmbeddingData(algorithm, n, hours, days, weeks, months, rndValue).history
+
+    const { data, history } = GetEmbeddingData(algorithm, n, hours, days, weeks, months, rndValue);
+
+    const [mainVisualizationData, setMainVisualizationData] = useState<number[][]>([[1, 1, 1]]);
+
+    // whenever data changes, the mainVisualizationData state variable is updated with the new data
+    useEffect(() => {
+        setMainVisualizationData(data);
+    }, [data]);
 
     const handleFilterClick = () => {
         setRndValue(Math.random())
     }
+
 
     const handleAlgorithmChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setAlgorithm(event.target.value);
@@ -56,20 +64,40 @@ export default function Analysis() {
     };
 
 
-
     return (
         <Row justify="space-evenly" className="container">
             <Col span={12} className="A-main Box-Design">
                 <h2 className="section-title">Main Visualization</h2>
-                {VizScatter(data, 12, algorithm, n, true)}
+                <VizScatter
+                    data={mainVisualizationData}
+                    fsize={12}
+                    algoName={algorithm}
+                    n_component={n}
+                    includeToolbox={true}
+                />
             </Col>
             <Col span={6} className="B-history Box-Design">
                 <h2 className="section-title">History</h2>
                 {history.map((entry, index) => (
-                    <div onClick={() => data}>
-                        {VizScatter(data, 5, entry.algoName, entry.n_component, false)}
+                    <div
+                        key={index}
+                        onClick={() => {
+                            setMainVisualizationData(entry.data);
+                            setAlgorithm(entry.algoName);
+                            setN(entry.n_component);
+                        }}
+
+                    >
+                        <VizScatter
+                            data={entry.data}
+                            fsize={5}
+                            algoName={entry.algoName}
+                            n_component={entry.n_component}
+                            includeToolbox={false}
+                        />
                     </div>
                 ))}
+
             </Col>
             <Col span={5} className="C-option Box-Design">
                 <h2 className="section-title">Event Parameters</h2>
@@ -165,10 +193,6 @@ export default function Analysis() {
                     </Row>
                 </>
                 }
-
-
-
-
                 <Row className="input-row">
                     <button onClick={handleFilterClick} className="custom-button">Visualize</button>
                 </Row>

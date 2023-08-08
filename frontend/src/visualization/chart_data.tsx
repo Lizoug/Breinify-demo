@@ -32,22 +32,25 @@ export function GetEmbeddingData(
                 }
                 const fetchedData = await response.json();
                 setData(fetchedData);
-                //console.log(fetchedData)
-                setHistory(prevHistory => [data, ...prevHistory].filter(entry => entry !== null) as any);
-
             } catch (error) {
                 console.error("Error fetching the image:", error);
-                // You can add error handling logic here if needed
             }
         };
 
-        // Call the fetchImage function
         fetchData();
-        // eslint-disable-next-line
     }, [rndValue]);
+
+    // Move history updating to a separate useEffect
+    useEffect(() => {
+        setHistory(prevHistory => [
+            {data: data, algoName: algorithm, n_component: n},
+            ...prevHistory
+        ].filter(entry => entry !== null) as any);
+    }, [data]);
 
     return {
         "data": data,
         "history": history
     };
+
 }
