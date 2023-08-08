@@ -11,8 +11,8 @@ export function GetEmbeddingData(
     rndValue: number
 )
 {
-    const [data, setData] = useState<number[][]>([[1, 1, 1]]);
-    const [history, setHistory] = useState<{ data: number[][]; algoName: string; n_component: number }[]>([{data: data, algoName: algorithm, n_component: n }]);
+    const [data, setData] = useState<number[][]>([[]]);
+    const [history, setHistory] = useState<{ data: number[][]; algoName: string; n_component: number }[]>([]);
 
     const hoursParams = hours.map(hour => `hours=${hour}`).join('&');
     const daysParams = days.map(day => `days=${day}`).join('&');
@@ -42,11 +42,15 @@ export function GetEmbeddingData(
 
     // Move history updating to a separate useEffect
     useEffect(() => {
-        setHistory(prevHistory => [
-            {data: data, algoName: algorithm, n_component: n},
-            ...prevHistory
-        ].filter(entry => entry !== null) as any);
+        // Check if data is not empty
+        if (data && data.length > 0 && data[0] && data[0].length > 0) {
+            setHistory(prevHistory => [
+                ...prevHistory,
+                { data: data, algoName: algorithm, n_component: n }
+            ]);
+        }
     }, [data]);
+
 
     return {
         "data": data,

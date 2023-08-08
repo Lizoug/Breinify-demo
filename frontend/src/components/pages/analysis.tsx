@@ -22,7 +22,7 @@ export default function Analysis() {
 
     const { data, history } = GetEmbeddingData(algorithm, n, hours, days, weeks, months, rndValue);
 
-    const [mainVisualizationData, setMainVisualizationData] = useState<number[][]>([[1, 1, 1]]);
+    const [mainVisualizationData, setMainVisualizationData] = useState<number[][]>([[]]);
 
     // whenever data changes, the mainVisualizationData state variable is updated with the new data
     useEffect(() => {
@@ -86,7 +86,6 @@ export default function Analysis() {
                             setAlgorithm(entry.algoName);
                             setN(entry.n_component);
                         }}
-
                     >
                         <VizScatter
                             data={entry.data}
