@@ -13,6 +13,7 @@ export function GetEmbeddingData(
 {
     const [data, setData] = useState<number[][]>([[]]);
     const [history, setHistory] = useState<{ data: number[][]; algoName: string; n_component: number }[]>([]);
+    const [fetchedAlgorithmName, setFetchedAlgorithmName] = useState<string>("umap");
 
     const hoursParams = hours.map(hour => `hours=${hour}`).join('&');
     const daysParams = days.map(day => `days=${day}`).join('&');
@@ -32,13 +33,14 @@ export function GetEmbeddingData(
                 }
                 const fetchedData = await response.json();
                 setData(fetchedData);
+                setFetchedAlgorithmName(algorithm); // update algorithm name after data is fetched
             } catch (error) {
                 console.error("Error fetching the image:", error);
             }
         };
 
         fetchData();
-    }, [rndValue]);
+    }, [rndValue, algorithm]); // added algorithm as a dependency
 
     // Move history updating to a separate useEffect
     useEffect(() => {
@@ -53,8 +55,10 @@ export function GetEmbeddingData(
 
 
     return {
-        "data": data,
-        "history": history
+        data: data,
+        history: history,
+        algoName: fetchedAlgorithmName
     };
+
 
 }

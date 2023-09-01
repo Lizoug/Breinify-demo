@@ -20,7 +20,7 @@ export default function Analysis() {
     const [filterToggle, setFilterToggle] = useState<boolean>(false)
 
 
-    const { data, history } = GetEmbeddingData(algorithm, n, hours, days, weeks, months, rndValue);
+    const { data, history, algoName } = GetEmbeddingData(algorithm, n, hours, days, weeks, months, rndValue);
 
     const [mainVisualizationData, setMainVisualizationData] = useState<number[][]>([[]]);
 
@@ -71,10 +71,11 @@ export default function Analysis() {
                 <VizScatter
                     data={mainVisualizationData}
                     fsize={12}
-                    algoName={algorithm}
+                    algoName={algoName}
                     n_component={n}
                     includeToolbox={true}
                 />
+
             </Col>
             <Col span={6} className="B-history Box-Design">
                 <h2 className="section-title">History</h2>
