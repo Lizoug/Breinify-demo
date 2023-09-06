@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+numpy
+scikit-learn
+pandas
+typing
+umap-learn==0.5.3
