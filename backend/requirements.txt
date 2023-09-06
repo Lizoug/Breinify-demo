@@ -3,5 +3,5 @@ uvicorn
 numpy
 scikit-learn
 pandas
-os
 typing
+umap-learn==0.5.3
