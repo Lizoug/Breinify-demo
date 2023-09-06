@@ -1,25 +1,26 @@
 # Dockerfile_frontend
 
-# Basisbild
+# Use node version 14 as the base image
 FROM node:14
 
-# Setzen Sie das Arbeitsverzeichnis im Container
+# Set the working directory inside the container to '/app'
 WORKDIR /app
 
-# Installieren Sie App-Abhängigkeiten
-# Ein Sternchen (*) wird verwendet, um sowohl package.json als auch package-lock.json zu kopieren
+# Install app dependencies
+# Use a wildcard (*) to copy both package.json and package-lock.json 
 COPY package*.json ./
 
+# Install the Node.js dependencies from the package.json file
 RUN npm install
 
-# Kopieren Sie den App-Quellcode in den Container
+# Copy the rest of the application source code into the container
 COPY . .
 
-# Bauen Sie die App
+# Build the application using the specified scripts in package.json
 RUN npm run build
 
-# Setzen Sie den Port
+# Expose port 3000 for the application
 EXPOSE 3000
 
-# Führen Sie die App aus
+# Start the application using npm start command
 CMD [ "npm", "start" ]
