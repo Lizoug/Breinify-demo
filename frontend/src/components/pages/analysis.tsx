@@ -12,7 +12,7 @@ import { useEffect } from "react";
 export default function Analysis() {
     const [algorithm, setAlgorithm] = useState<string>("umap");
     const [n, setN] = useState<number>(2);
-    const [days, setDays] = useState<[number, number]>([0, 30]);
+    const [days, setDays] = useState<[number, number]>([0, 6]);
     const [weeks, setWeeks] = useState<[number, number]>([0, 52]);
     const [months, setMonths] = useState<[number, number]>([0, 12]);
     const [hours, setHours] = useState<[number, number]>([0, 24]);
@@ -157,7 +157,7 @@ export default function Analysis() {
                         <Slider
                             range
                             min={0}
-                            max={31}
+                            max={6}
                             onChange={handleDaysChange}
                             value={days}
                             className="custom-input"
