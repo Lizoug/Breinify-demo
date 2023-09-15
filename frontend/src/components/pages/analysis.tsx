@@ -79,7 +79,7 @@ export default function Analysis() {
             </Col>
             <Col span={6} className="B-history Box-Design">
                 <h2 className="section-title">History</h2>
-                {history.map((entry, index) => (
+                {[...history].reverse().map((entry, index) => (
                     <div
                         key={index}
                         onClick={() => {
