@@ -23,7 +23,7 @@ def load_data(filename):
     data['month'] = data['timestamp'].dt.month
     data['week'] = data['timestamp'].dt.isocalendar().week
     data['hour'] = data['timestamp'].dt.hour
-    data['day'] = data['timestamp'].dt.day
+    data['day'] = data['timestamp'].dt.weekday
 
     print(data.head())
     return data

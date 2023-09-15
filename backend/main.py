@@ -28,7 +28,7 @@ app.add_middleware(
 
 # FastAPI endpoint to choose dimension reduction algorithm, number of components and time filters
 @app.get("/visualization/time/")
-async def choose_algo_time(algo_name: str, n: int, hours: List[int] = Query([0, 23]), days: List[int] = Query([0, 29]),
+async def choose_algo_time(algo_name: str, n: int, hours: List[int] = Query([0, 23]), days: List[int] = Query([0, 6]),
                            weeks: List[int] = Query([0, 51]), months: List[int] = Query([0, 11])):
     # Printing out the parameters received
     print(f"Received parameters - Hours: {hours}, Days: {days}, Weeks: {weeks}, Months: {months}")
