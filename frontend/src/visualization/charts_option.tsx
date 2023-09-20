@@ -148,6 +148,26 @@ export function optionVizScatter(data: number[][], fsize: number, algoName: stri
                 data: yHistogramRed
             }
         ],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            },
+            formatter: function(params) {
+                let tooltipText = "";
+
+                // Handle the case when params is an array
+                if (Array.isArray(params)) {
+                    params.forEach(param => {
+                        tooltipText += `${param.seriesName}: ${param.data} points<br>`;
+                    });
+                } else { // Handle the case when params is a single object
+                    tooltipText = `${params.seriesName}: ${params.data} points<br>`;
+                }
+
+                return tooltipText;
+            }
+        },
         toolbox: includeToolbox ? {
             show: true,
             feature: {
