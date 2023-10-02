@@ -1,15 +1,16 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from "./pages/home";
-import Analysis from "./pages/analysis"
-
+import Analysis, { ViewportProvider } from "./pages/analysis"; // Ensure correct export/import
 
 export default function Routing() {
     return (
         <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/Analysis" element={<Analysis/>}/>
-            </Routes>
+            <ViewportProvider>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/Analysis" element={<Analysis/>}/>
+                </Routes>
+            </ViewportProvider>
         </BrowserRouter>
     );
 }
