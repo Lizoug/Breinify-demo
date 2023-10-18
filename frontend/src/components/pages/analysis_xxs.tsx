@@ -87,6 +87,7 @@ export default function Analysis_xxs() {
                     />
                 </Col>
             </Row>
+
             <Row>
                 <Col>
                     <label>Filter</label>
@@ -103,6 +104,7 @@ export default function Analysis_xxs() {
                     </Space>
                 </Col>
             </Row>
+
             {filterToggle && (
                 <div>
                     <Row className="input-row">
@@ -116,6 +118,7 @@ export default function Analysis_xxs() {
                                 className="custom-input" />
                         </Col>
                     </Row>
+
                     <Row className="input-row">
                         <Col><label className="input-label">Days:</label></Col>
                         <Col span={24}>
@@ -127,6 +130,7 @@ export default function Analysis_xxs() {
                                 className="custom-input" />
                         </Col>
                     </Row>
+
                     <Row className="input-row">
                         <Col><label className="input-label">Weeks:</label></Col>
                         <Col span={24}>
@@ -138,6 +142,7 @@ export default function Analysis_xxs() {
                                 className="custom-input" />
                         </Col>
                     </Row>
+
                     <Row className="input-row">
                         <Col><label className="input-label">Months:</label></Col>
                         <Col span={24}>
@@ -151,6 +156,43 @@ export default function Analysis_xxs() {
                     </Row>
                 </div>
             )}
+
+            <Row className="input-row">
+                <button onClick={handleFilterClick} className="custom-button">Visualize</button>
+            </Row>
+
+            <Row className="A-main Box-Design">
+                <h2 className="section-title">Main Visualization</h2>
+                <VizScatter
+                    data={mainVisualizationData}
+                    fsize={8}
+                    algoName={algoName}
+                    n_component={n}
+                    includeToolbox={true}
+                />
+            </Row>
+
+            <Row className="B-history Box-Design">
+                <h2 className="section-title">History</h2>
+                {[...history].reverse().map((entry, index) => (
+                    <div
+                        key={index}
+                        onClick={() => {
+                            setMainVisualizationData(entry.data);
+                            setAlgorithm(entry.algoName);
+                            setN(entry.n_component);
+                        }}
+                    >
+                        <VizScatter
+                            data={entry.data}
+                            fsize={8}
+                            algoName={entry.algoName}
+                            n_component={entry.n_component}
+                            includeToolbox={false}
+                        />
+                    </div>
+                ))}
+            </Row>
         </div>
     );
 }
