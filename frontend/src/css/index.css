@@ -95,6 +95,15 @@ code {
 
 }
 
+.Box-Design-xxs{
+  height: 100px;
+  background-color: #fafafa;
+  margin: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  padding: 20px;
+}
 .A-main {
   padding: 20px;
 
@@ -112,6 +121,7 @@ code {
 .input-row {
   margin-bottom: 15px;
 }
+
 
 .input-label {
   display: block;
