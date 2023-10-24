@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 
 // Analysis is a React component for visualizing data based on different algorithms and parameters
-export default function Analysis_xxs() {
+export default function Analysis_xs() {
     const [algorithm, setAlgorithm] = useState<string>("umap");
     const [n, setN] = useState<number>(2);
     const [days, setDays] = useState<[number, number]>([0, 6]);
@@ -62,3 +62,30 @@ export default function Analysis_xxs() {
         setMonths(value);
         console.log(months)
     };
+
+    return (
+        <div>
+            <Row justify="space-between" className="Box-Design">
+                <Col span={10}>
+                    <label className="input-label">Algorithm:</label>
+                    <select id="algorithm" value={algorithm} onChange={handleAlgorithmChange} className="custom-select">
+                        <option value="pca">PCA</option>
+                        <option value="umap">UMAP</option>
+                        <option value="tsne">t-SNE</option>
+                    </select>
+                </Col>
+
+                <Col span={10}>
+                    <label className="input-label">Components:</label>
+                    <input
+                        type="number"
+                        id="n"
+                        value={n}
+                        onChange={handleNumberChange}
+                        className="custom-input"
+                    />
+                </Col>
+            </Row>
+        </div>
+    );
+}
