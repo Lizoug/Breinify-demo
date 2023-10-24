@@ -11,11 +11,12 @@ export default function Size() {
 
     if (size_xxs) {
         return <Analysis_xxs />;
-    if (size_xs) {
+
+    }
+    else if (size_xs) {
         return <Analysis_xs />;
     }
-
-    } else {
+    else {
         return <Analysis />;
     }
 }
