@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { optionVizScatter } from "./charts_option";
+import { optionVizScatter } from "./charts_option_xxs";
 import * as echarts from 'echarts';
 import 'echarts-for-react';
 
