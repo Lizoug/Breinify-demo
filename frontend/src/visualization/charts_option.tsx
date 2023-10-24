@@ -64,16 +64,23 @@ export function optionVizScatter(data: number[][], fsize: number, algoName: stri
         // Setting up the title of the chart, centered at the top
         title: {
             text: `${algoName} (${n_component} components)`,
-            left: 'center'
+            left: 'center',
+            textStyle: {
+                fontSize: fsize,
+                height: 50
+            }
         },
         // Define three grid areas for the main scatter plot, and two histograms (top and right)
         grid: [
-            { left: '10%', width: '60%', bottom: '10%', height: '60%' },  // Main scatter plot area
-            { left: '10%', width: '60%', top: '15%', height: '15%' },     // Top histogram area
-            { left: '70%', width: '15%', bottom: '10%', height: '60%' }   // Right histogram area
+            { left: '10%', width: '73%', bottom: '15%', height: '62%' },  // Main scatter plot area
+            { left: '10%', width: '73%', top: '7%', height: '15%' },     // Top histogram area
+            { left: '85%', width: '15%', bottom: '15%', height: '62%' }   // Right histogram area
         ],
         xAxis: [
-            { gridIndex: 0 },
+            { gridIndex: 0,
+                min: "dataMin",
+                max: "dataMax"
+            },
             {
                 gridIndex: 1,
                 type: 'category',
@@ -94,7 +101,9 @@ export function optionVizScatter(data: number[][], fsize: number, algoName: stri
             }   // Hide everything for the histogram on the right
         ],
         yAxis: [
-            { gridIndex: 0 },
+            { gridIndex: 0,
+                min: "dataMin",
+                max: "dataMax"},
             {
                 gridIndex: 1,
                 show: false,
@@ -146,6 +155,7 @@ export function optionVizScatter(data: number[][], fsize: number, algoName: stri
                 itemStyle: {
                     color: 'blue'
                 },
+                barWidth: '99.3%',
                 data: xHistogramBlue
             },
             {
@@ -157,6 +167,7 @@ export function optionVizScatter(data: number[][], fsize: number, algoName: stri
                 itemStyle: {
                     color: 'red'
                 },
+                barWidth: '99.3%',
                 data: xHistogramRed
             },
             {
@@ -168,6 +179,7 @@ export function optionVizScatter(data: number[][], fsize: number, algoName: stri
                 itemStyle: {
                     color: 'blue'
                 },
+                barWidth: '99.3%',
                 data: yHistogramBlue
             },
             {
@@ -179,6 +191,7 @@ export function optionVizScatter(data: number[][], fsize: number, algoName: stri
                 itemStyle: {
                     color: 'red'
                 },
+                barWidth: '99.3%',
                 data: yHistogramRed
             }
         ],
@@ -203,12 +216,14 @@ export function optionVizScatter(data: number[][], fsize: number, algoName: stri
             }
         },
         toolbox: includeToolbox ? {
+            bottom: "0%",
             show: true,
             feature: {
                 dataZoom: {},      // Tool for zooming in/out
                 dataView: {readOnly: false},  // Tool for viewing raw data
                 restore: {},       // Tool for restoring to original view
-                saveAsImage: {}    // Tool for saving visualization as an image
+                saveAsImage: {},    // Tool for saving visualization as an image
+
             }
         } : {},
         // Legend configuration (not shown in this visualization)

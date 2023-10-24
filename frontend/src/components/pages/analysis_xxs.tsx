@@ -66,8 +66,8 @@ export default function Analysis_xxs() {
 
     return (
         <div>
-            <Row gutter={16} className="Box-Design-xxs">
-                <Col span={12}>
+            <Row justify="space-between" className="Box-Design">
+                <Col span={10}>
                     <label className="input-label">Algorithm:</label>
                     <select id="algorithm" value={algorithm} onChange={handleAlgorithmChange} className="custom-select">
                         <option value="pca">PCA</option>
@@ -76,7 +76,7 @@ export default function Analysis_xxs() {
                     </select>
                 </Col>
 
-                <Col span={12}>
+                <Col span={10}>
                     <label className="input-label">Components:</label>
                     <input
                         type="number"
@@ -88,9 +88,9 @@ export default function Analysis_xxs() {
                 </Col>
             </Row>
 
-            <Row>
+            <Row justify="space-between" className="Box-Design">
                 <Col>
-                    <label>Filter</label>
+                    <label className="input-label">Filter</label>
                 </Col>
                 <Col className="space-below">
                     <Space direction="vertical">
@@ -106,7 +106,7 @@ export default function Analysis_xxs() {
             </Row>
 
             {filterToggle && (
-                <div>
+                <div className="Box-Design">
                     <Row className="input-row">
                         <Col><label className="input-label">Hours:</label></Col>
                         <Col span={24}>
@@ -172,10 +172,10 @@ export default function Analysis_xxs() {
                 />
             </Row>
 
-            <Row className="B-history Box-Design">
+            <Row className="B-history Box-Design padding-bottom-20">
                 <h2 className="section-title">History</h2>
                 {[...history].reverse().map((entry, index) => (
-                    <div
+                    <div className="history-container"
                         key={index}
                         onClick={() => {
                             setMainVisualizationData(entry.data);
