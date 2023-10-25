@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 
 // Analysis is a React component for visualizing data based on different algorithms and parameters
-export default function Analysis_xxs() {
+export default function Analysis_xs() {
     const [algorithm, setAlgorithm] = useState<string>("umap");
     const [n, setN] = useState<number>(2);
     const [days, setDays] = useState<[number, number]>([0, 6]);
@@ -62,3 +62,133 @@ export default function Analysis_xxs() {
         setMonths(value);
         console.log(months)
     };
+
+    return (
+        <div>
+            <Row justify="space-between" className="Box-Design">
+                <Col span={10}>
+                    <label className="input-label">Algorithm:</label>
+                    <select id="algorithm" value={algorithm} onChange={handleAlgorithmChange} className="custom-select">
+                        <option value="pca">PCA</option>
+                        <option value="umap">UMAP</option>
+                        <option value="tsne">t-SNE</option>
+                    </select>
+                </Col>
+
+                <Col span={10}>
+                    <label className="input-label">Components:</label>
+                    <input
+                        type="number"
+                        id="n"
+                        value={n}
+                        onChange={handleNumberChange}
+                        className="custom-input"
+                    />
+                </Col>
+            </Row>
+
+            <Row justify="space-between" className="Box-Design">
+                <Col>
+                    <label className="input-label">Filter</label>
+                </Col>
+                <Col className="space-below">
+                    <Space direction="vertical">
+                        <Switch
+                            checked={filterToggle}
+                            checkedChildren={<CheckOutlined />}
+                            unCheckedChildren={<CloseOutlined />}
+                            onChange={(checked) => setFilterToggle(checked)}
+                            defaultChecked
+                        />
+                    </Space>
+                </Col>
+            </Row>
+
+            {filterToggle && (
+                <div className="Box-Design">
+                    <Row justify={"space-between"} className="input-row">
+                        <Col><label className="input-label">Hours:</label></Col>
+                        <Col span={9}>
+                            <Slider
+                                range min={0}
+                                max={24}
+                                onChange={handleHoursChange}
+                                value={hours}
+                                className="custom-input" />
+                        </Col>
+                        <Col><label className="input-label">Days:</label></Col>
+                        <Col span={9}>
+                            <Slider
+                                range min={0}
+                                max={6}
+                                onChange={handleDaysChange}
+                                value={days}
+                                className="custom-input" />
+                        </Col>
+                    </Row>
+
+                    <Row justify={"space-between"} className="input-row">
+                        <Col><label className="input-label">Weeks:</label></Col>
+                        <Col span={9}>
+                            <Slider
+                                range min={0}
+                                max={52}
+                                onChange={handleWeeksChange}
+                                value={weeks}
+                                className="custom-input" />
+                        </Col>
+                        <Col><label className="input-label">Months:</label></Col>
+                        <Col span={9}>
+                            <Slider
+                                range min={0}
+                                max={12}
+                                onChange={handleMonthsChange}
+                                value={months}
+                                className="custom-input" />
+                        </Col>
+                    </Row>
+                </div>
+            )}
+
+            <Row className="input-row">
+                <button onClick={handleFilterClick} className="custom-button">Visualize</button>
+            </Row>
+
+            <Row  className="A-main Box-Design">
+                <Col>
+                    <h2 className="section-title">Main Visualization</h2>
+                    <VizScatter
+                        data={mainVisualizationData}
+                        fsize={8}
+                        algoName={algoName}
+                        n_component={n}
+                        includeToolbox={true}
+                    />
+                </Col>
+
+                <Col>
+                    <h2 className="section-title">History</h2>
+                    {[...history].reverse().map((entry, index) => (
+                        <div className="history-container"
+                             key={index}
+                             onClick={() => {
+                                 setMainVisualizationData(entry.data);
+                                 setAlgorithm(entry.algoName);
+                                 setN(entry.n_component);
+                             }}
+                        >
+                            <VizScatter
+                                data={entry.data}
+                                fsize={8}
+                                algoName={entry.algoName}
+                                n_component={entry.n_component}
+                                includeToolbox={false}
+                            />
+                        </div>
+                    ))}
+                </Col>
+            </Row>
+
+        </div>
+    );
+}

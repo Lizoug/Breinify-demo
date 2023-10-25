@@ -22,33 +22,7 @@ code {
 }
 
 
-.footer {
-  background-color: #31525B;
-  margin-top: auto;
-  padding: 20px 0;
-}
 
-.fixed-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-
-.footer-title {
-  color: #FAE6B1;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.footer-link {
-  color: #FAE6B1;
-  text-decoration: none;
-  font-size: 16px;
-  display: block;
-  margin-bottom: 5px;
-}
 
 .social-links {
   display: flex;
@@ -111,6 +85,7 @@ code {
 }
 
 .B-history {
+  max-height: 500px;
   overflow-y: auto;
 }
 
@@ -190,6 +165,32 @@ code {
   margin-bottom: 10px;
 }
 
+.footer {
+  background-color: #31525B;
+  margin-top: auto;
+  padding: 20px 0;
+}
+
+.fixed-footer {
+  bottom: 0;
+  width: 100%;
+}
+
+
+.footer-title {
+  color: #FAE6B1;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-link {
+  color: #FAE6B1;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 5px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
