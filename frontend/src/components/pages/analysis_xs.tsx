@@ -154,8 +154,8 @@ export default function Analysis_xs() {
                 <button onClick={handleFilterClick} className="custom-button">Visualize</button>
             </Row>
 
-            <Row  className="A-main Box-Design">
-                <Col>
+            <Row justify={"space-evenly"} className="input-row">
+                <Col span={12} className="Box-Design">
                     <h2 className="section-title">Main Visualization</h2>
                     <VizScatter
                         data={mainVisualizationData}
@@ -166,28 +166,31 @@ export default function Analysis_xs() {
                     />
                 </Col>
 
-                <Col>
+                <Col span={9} className="Box-Design">
                     <h2 className="section-title">History</h2>
-                    {[...history].reverse().map((entry, index) => (
-                        <div className="history-container"
-                             key={index}
-                             onClick={() => {
-                                 setMainVisualizationData(entry.data);
-                                 setAlgorithm(entry.algoName);
-                                 setN(entry.n_component);
-                             }}
-                        >
-                            <VizScatter
-                                data={entry.data}
-                                fsize={8}
-                                algoName={entry.algoName}
-                                n_component={entry.n_component}
-                                includeToolbox={false}
-                            />
-                        </div>
-                    ))}
+                    <div className="history-wrapper">
+                        {[...history].reverse().map((entry, index) => (
+                            <div className="history-container"
+                                 key={index}
+                                 onClick={() => {
+                                     setMainVisualizationData(entry.data);
+                                     setAlgorithm(entry.algoName);
+                                     setN(entry.n_component);
+                                 }}
+                            >
+                                <VizScatter
+                                    data={entry.data}
+                                    fsize={8}
+                                    algoName={entry.algoName}
+                                    n_component={entry.n_component}
+                                    includeToolbox={false}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </Col>
             </Row>
+
 
         </div>
     );
