@@ -159,7 +159,7 @@ export default function Analysis_xs() {
                     <h2 className="section-title">Main Visualization</h2>
                     <VizScatter
                         data={mainVisualizationData}
-                        fsize={8}
+                        fsize={12}
                         algoName={algoName}
                         n_component={n}
                         includeToolbox={true}
@@ -180,7 +180,7 @@ export default function Analysis_xs() {
                             >
                                 <VizScatter
                                     data={entry.data}
-                                    fsize={8}
+                                    fsize={10}
                                     algoName={entry.algoName}
                                     n_component={entry.n_component}
                                     includeToolbox={false}

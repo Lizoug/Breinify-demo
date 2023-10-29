@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { optionVizScatter } from "./charts_option_xxs";
+import { optionVizScatter } from "./charts_option";
 import * as echarts from 'echarts';
 import 'echarts-for-react';
 
@@ -20,7 +20,7 @@ export default function VizScatter({data, fsize, algoName, n_component, includeT
     const chartInstance = useRef<echarts.ECharts | null>(null);
 
     // Generate chart options based on the dimension of the data (2D or 3D)
-    const option = optionVizScatter(data as [number, number][], fsize, algoName, n_component, includeToolbox)
+    const option = optionVizScatter(data, fsize, algoName, n_component, includeToolbox)
 
     // Use useEffect hook to initialize the ECharts instance and update the chart when the component mounts or updates
     useEffect(() => {

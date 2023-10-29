@@ -1,10 +1,10 @@
 import React from "react";
 import {useMediaQuery} from "react-responsive";
-import Analysis from "./analysis";
 import Analysis_xxs from "./analysis_xxs";
 import Analysis_xs from "./analysis_xs";
 import Analysis_m from "./analysis_m";
 import Analysis_l from "./analysis_l";
+import Analysis_xl from "./analysis_xl";
 
 
 export default function Size() {
@@ -17,5 +17,5 @@ export default function Size() {
     if (size_xs) return <Analysis_xs />;
     if (size_m) return <Analysis_m />;
     if (size_l) return <Analysis_l />;
-    return <Analysis />;
+    return <Analysis_xl />;
 }

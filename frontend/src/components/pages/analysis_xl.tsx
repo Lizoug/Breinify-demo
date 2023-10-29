@@ -70,7 +70,7 @@ export default function Analysis_l() {
                 <h2 className="section-title">Main Visualization</h2>
                 <VizScatter
                     data={mainVisualizationData}
-                    fsize={14}
+                    fsize={16}
                     algoName={algoName}
                     n_component={n}
                     includeToolbox={true}
@@ -91,7 +91,7 @@ export default function Analysis_l() {
                         >
                             <VizScatter
                                 data={entry.data}
-                                fsize={10}
+                                fsize={14}
                                 algoName={entry.algoName}
                                 n_component={entry.n_component}
                                 includeToolbox={false}
