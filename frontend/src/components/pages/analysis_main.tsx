@@ -1,22 +1,25 @@
 import React from "react";
 import {useMediaQuery} from "react-responsive";
-import Analysis from "./analysis";
 import Analysis_xxs from "./analysis_xxs";
 import Analysis_xs from "./analysis_xs";
+import Analysis_m from "./analysis_m";
+import Analysis_l from "./analysis_l";
+import Analysis_xl from "./analysis_xl";
+import Analysis_xxl from "./analysis";
+
 
 
 export default function Size() {
     const size_xxs = useMediaQuery({query: "(max-device-width: 479px)"});
     const size_xs = useMediaQuery({query: "(min-device-width: 480px) and (max-device-width: 768px)"});
+    const size_m = useMediaQuery({query: "(min-device-width: 769px) and (max-device-width: 1024px"});
+    const size_l = useMediaQuery({query: "(min-device-width: 1025px) and (max-device-width: 1599px)"});
+    const size_xl= useMediaQuery({query: "(min-device-width: 1600px) and (max-device-width: 1919px)"});
 
-    if (size_xxs) {
-        return <Analysis_xxs />;
-
-    }
-    else if (size_xs) {
-        return <Analysis_xs />;
-    }
-    else {
-        return <Analysis />;
-    }
+    if (size_xxs) return <Analysis_xxs />;
+    if (size_xs) return <Analysis_xs />;
+    if (size_m) return <Analysis_m />;
+    if (size_l) return <Analysis_l />;
+    if (size_xl) return <Analysis_xl />
+    return <Analysis_xxl />;
 }

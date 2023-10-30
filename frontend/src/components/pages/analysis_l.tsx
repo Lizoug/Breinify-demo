@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 
 // Analysis is a React component for visualizing data based on different algorithms and parameters
-export default function Analysis_xxl() {
+export default function Analysis_l() {
     const [algorithm, setAlgorithm] = useState<string>("umap");
     const [n, setN] = useState<number>(2);
     const [days, setDays] = useState<[number, number]>([0, 6]);
@@ -66,20 +66,20 @@ export default function Analysis_xxl() {
 
     return (
         <Row justify="space-evenly" className="container_l">
-            <Col span={11} className="A-main Box-Design_l">
+            <Col span={10} className="A-main Box-Design_l">
                 <h2 className="section-title">Main Visualization</h2>
                 <VizScatter
                     data={mainVisualizationData}
-                    fsize={16}
+                    fsize={14}
                     algoName={algoName}
                     n_component={n}
                     includeToolbox={true}
                 />
 
             </Col>
-            <Col span={7} className="Box-Design_l B-history_xl">
+            <Col span={8} className="Box-Design_l B-history_l">
                 <h2 className="section-title">History</h2>
-                <div className="history-wrapper_xl">
+                <div className="history-wrapper_l">
                     {[...history].reverse().map((entry, index) => (
                         <div
                             key={index}
@@ -91,7 +91,7 @@ export default function Analysis_xxl() {
                         >
                             <VizScatter
                                 data={entry.data}
-                                fsize={14}
+                                fsize={10}
                                 algoName={entry.algoName}
                                 n_component={entry.n_component}
                                 includeToolbox={false}
