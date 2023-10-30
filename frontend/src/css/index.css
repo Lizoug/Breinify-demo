@@ -85,7 +85,7 @@ code {
 }
 
 .B-history {
-  max-height: 500px;
+  max-height: max-content;
   overflow-y: auto;
 }
 
@@ -248,6 +248,7 @@ code {
 }
 
 .Box-Design_l {
+  height: 95%;
   background-color: #fafafa;
   margin-bottom: 10px;
   border-radius: 10px;
@@ -267,13 +268,18 @@ code {
   flex-direction: column;
 }
 .B-history_l {
-  max-height: 720px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
 
 }
 
+.B-history_xl {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+}
 
 .input-row_l {
   margin-bottom: 15px;
@@ -306,6 +312,12 @@ code {
 }
 
 .history-wrapper_l {
+  height: 90%;
+  overflow-y: auto;
+}
+
+.history-wrapper_xl {
+  height: 90%;
   overflow-y: auto;
 }
 
