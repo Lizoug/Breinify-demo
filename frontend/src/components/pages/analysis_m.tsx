@@ -87,8 +87,8 @@ export default function Analysis_xs() {
                 </Col>
             </Row>
 
-            <Row justify="space-between" className="Box-Design">
-                <Col>
+            <Row className="Box-Design">
+                <Col span={2}>
                     <label className="input-label">Filter</label>
                 </Col>
                 <Col className="space-below">
