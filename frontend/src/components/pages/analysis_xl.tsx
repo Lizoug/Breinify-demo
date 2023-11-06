@@ -68,13 +68,15 @@ export default function Analysis_xl() {
         <Row justify="space-evenly" className="container_l">
             <Col span={13} className="A-main Box-Design_l">
                 <h2 className="section-title">Main Visualization</h2>
-                <VizScatter
-                    data={mainVisualizationData}
-                    fsize={16}
-                    algoName={algoName}
-                    n_component={n}
-                    includeToolbox={true}
-                />
+                <div style={{height: "400px"}}>
+                    <VizScatter
+                        data={mainVisualizationData}
+                        fsize={16}
+                        algoName={algoName}
+                        n_component={n}
+                        includeToolbox={true}
+                    />
+                </div>
 
             </Col>
             <Col span={6} className="Box-Design_l B-history_xl">
@@ -89,13 +91,15 @@ export default function Analysis_xl() {
                                 setN(entry.n_component);
                             }}
                         >
-                            <VizScatter
-                                data={entry.data}
-                                fsize={14}
-                                algoName={entry.algoName}
-                                n_component={entry.n_component}
-                                includeToolbox={false}
-                            />
+                            <div style={{height: "300px"}}>
+                                <VizScatter
+                                    data={entry.data}
+                                    fsize={14}
+                                    algoName={entry.algoName}
+                                    n_component={entry.n_component}
+                                    includeToolbox={false}
+                                />
+                            </div>
                         </div>
                     ))}
                 </div>
