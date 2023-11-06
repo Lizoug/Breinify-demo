@@ -68,20 +68,24 @@ export default function Analysis_xxl() {
         <Row justify="space-evenly" className="container_l">
             <Col span={11} className="A-main Box-Design_l">
                 <h2 className="section-title">Main Visualization</h2>
-                <VizScatter
-                    data={mainVisualizationData}
-                    fsize={16}
-                    algoName={algoName}
-                    n_component={n}
-                    includeToolbox={true}
-                />
+                <div style={{height: "900px"}}>
+                    <VizScatter
+                        data={mainVisualizationData}
+                        fsize={16}
+                        algoName={algoName}
+                        n_component={n}
+                        includeToolbox={true}
+                    />
+                </div>
+
+
 
             </Col>
             <Col span={7} className="Box-Design_l B-history_xl">
                 <h2 className="section-title">History</h2>
                 <div className="history-wrapper_xl">
                     {[...history].reverse().map((entry, index) => (
-                        <div
+                        <div style={{height: "600px"}}
                             key={index}
                             onClick={() => {
                                 setMainVisualizationData(entry.data);
@@ -95,6 +99,7 @@ export default function Analysis_xxl() {
                                 algoName={entry.algoName}
                                 n_component={entry.n_component}
                                 includeToolbox={false}
+
                             />
                         </div>
                     ))}

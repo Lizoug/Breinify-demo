@@ -157,13 +157,15 @@ export default function Analysis_xs() {
             <Row justify={"space-evenly"} className="input-row">
                 <Col span={12} className="Box-Design">
                     <h2 className="section-title">Main Visualization</h2>
-                    <VizScatter
-                        data={mainVisualizationData}
-                        fsize={12}
-                        algoName={algoName}
-                        n_component={n}
-                        includeToolbox={true}
-                    />
+                    <div style={{height: "400px"}}>
+                        <VizScatter
+                            data={mainVisualizationData}
+                            fsize={12}
+                            algoName={algoName}
+                            n_component={n}
+                            includeToolbox={true}
+                        />
+                    </div>
                 </Col>
 
                 <Col span={9} className="Box-Design">
@@ -178,13 +180,15 @@ export default function Analysis_xs() {
                                      setN(entry.n_component);
                                  }}
                             >
-                                <VizScatter
-                                    data={entry.data}
-                                    fsize={10}
-                                    algoName={entry.algoName}
-                                    n_component={entry.n_component}
-                                    includeToolbox={false}
-                                />
+                                <div style={{height: "250px"}}>
+                                    <VizScatter
+                                        data={entry.data}
+                                        fsize={10}
+                                        algoName={entry.algoName}
+                                        n_component={entry.n_component}
+                                        includeToolbox={false}
+                                    />
+                                </div>
                             </div>
                         ))}
                     </div>

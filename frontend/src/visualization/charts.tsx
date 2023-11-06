@@ -40,6 +40,6 @@ export default function VizScatter({data, fsize, algoName, n_component, includeT
 
     // Render a div element that will contain the chart
     return (
-        <div ref={chartRef} style={{ width: "100%", height: 400 }} />
+        <div ref={chartRef} style={{ width: "100%", height: "100%" }} />
     );
 }
