@@ -200,12 +200,12 @@ export default function Analysis_xxs() {
                 <h2 className="section-title">History</h2>
                 {[...history].reverse().map((entry, index) => (
                     <div className="history-container"
-                        key={index}
-                        onClick={() => {
-                            setMainVisualizationData(entry.data);
-                            setAlgorithm(entry.algoName);
-                            setN(entry.n_component);
-                        }}
+                         key={index}
+                         onClick={() => {
+                             setMainVisualizationData(entry.data);
+                             setAlgorithm(entry.algoName);
+                             setN(entry.n_component);
+                         }}
                     >
                         <div style={{height: "250px"}}>
                             <VizScatter
