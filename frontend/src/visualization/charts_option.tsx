@@ -59,6 +59,8 @@ export function optionVizScatter(data: number[][], fsize: number, algoName: stri
     const yHistogramBlue = computeHistogram(data_blue.map(d => d[1]), binCount);
     const yHistogramRed = computeHistogram(data_red.map(d => d[1]), binCount);
 
+
+
     // Configuration options for the ECharts visualization
     const option: EChartsOption = {
         // Setting up the title of the chart, centered at the top
@@ -79,7 +81,12 @@ export function optionVizScatter(data: number[][], fsize: number, algoName: stri
         xAxis: [
             { gridIndex: 0,
                 min: "dataMin",
-                max: "dataMax"
+                max: "dataMax",
+                axisLabel: {
+                    formatter: function(value: number) {
+                        const rounded = Math.round(value * 100) / 100;
+                        return Number.isInteger(rounded) ? rounded.toString() : rounded.toFixed(2);
+                    }}
             },
             {
                 gridIndex: 1,
@@ -103,7 +110,15 @@ export function optionVizScatter(data: number[][], fsize: number, algoName: stri
         yAxis: [
             { gridIndex: 0,
                 min: "dataMin",
-                max: "dataMax"},
+                max: "dataMax",
+                axisLabel: {
+                    formatter: function(value: number) {
+                        const rounded = Math.round(value * 100) / 100;
+                        return Number.isInteger(rounded) ? rounded.toString() : rounded.toFixed(2);
+                    }
+                }
+
+            },
             {
                 gridIndex: 1,
                 show: false,

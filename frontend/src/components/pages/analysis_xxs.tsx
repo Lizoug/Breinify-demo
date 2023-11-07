@@ -185,13 +185,15 @@ export default function Analysis_xxs() {
 
             <Row className="A-main Box-Design">
                 <h2 className="section-title">Main Visualization</h2>
-                <VizScatter
-                    data={mainVisualizationData}
-                    fsize={8}
-                    algoName={algoName}
-                    n_component={n}
-                    includeToolbox={true}
-                />
+                <div style={{height:"400px"}}>
+                    <VizScatter
+                        data={mainVisualizationData}
+                        fsize={8}
+                        algoName={algoName}
+                        n_component={n}
+                        includeToolbox={true}
+                    />
+                </div>
             </Row>
 
             <Row className="B-history Box-Design padding-bottom-20">
@@ -205,13 +207,15 @@ export default function Analysis_xxs() {
                             setN(entry.n_component);
                         }}
                     >
-                        <VizScatter
-                            data={entry.data}
-                            fsize={8}
-                            algoName={entry.algoName}
-                            n_component={entry.n_component}
-                            includeToolbox={false}
-                        />
+                        <div style={{height: "250px"}}>
+                            <VizScatter
+                                data={entry.data}
+                                fsize={8}
+                                algoName={entry.algoName}
+                                n_component={entry.n_component}
+                                includeToolbox={false}
+                            />
+                        </div>
                     </div>
                 ))}
             </Row>

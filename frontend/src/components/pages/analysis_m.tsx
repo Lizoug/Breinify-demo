@@ -87,8 +87,8 @@ export default function Analysis_xs() {
                 </Col>
             </Row>
 
-            <Row justify="space-between" className="Box-Design">
-                <Col>
+            <Row className="Box-Design">
+                <Col span={2}>
                     <label className="input-label">Filter</label>
                 </Col>
                 <Col className="space-below">
@@ -160,7 +160,7 @@ export default function Analysis_xs() {
                     <div style={{height: "400px"}}>
                         <VizScatter
                             data={mainVisualizationData}
-                            fsize={8}
+                            fsize={12}
                             algoName={algoName}
                             n_component={n}
                             includeToolbox={true}
@@ -183,7 +183,7 @@ export default function Analysis_xs() {
                                 <div style={{height: "250px"}}>
                                     <VizScatter
                                         data={entry.data}
-                                        fsize={8}
+                                        fsize={10}
                                         algoName={entry.algoName}
                                         n_component={entry.n_component}
                                         includeToolbox={false}
