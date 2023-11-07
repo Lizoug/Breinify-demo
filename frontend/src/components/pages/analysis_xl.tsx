@@ -63,6 +63,29 @@ export default function Analysis_xl() {
         console.log(months)
     };
 
+    // switching the filter switch off
+    const [originalHours, setOriginalHours] = useState<[number, number]>(hours);
+    const [originalDays, setOriginalDays] = useState<[number, number]>(days);
+    const [originalWeeks, setOriginalWeeks] = useState<[number, number]>(weeks);
+    const [originalMonths, setOriginalMonths] = useState<[number, number]>(months);
+
+    const handleFilterToggle = (checked: boolean) => {
+        if (checked) {
+            // Filter is on; save the data "Original"
+            setOriginalHours(hours);
+            setOriginalDays(days);
+            setOriginalWeeks(weeks);
+            setOriginalMonths(months);
+            setFilterToggle(true);
+        } else {
+            // Filter is off; restore the original condition
+            setHours(originalHours);
+            setDays(originalDays);
+            setWeeks(originalWeeks);
+            setMonths(originalMonths);
+            setFilterToggle(false);
+        }
+    };
 
     return (
         <Row justify="space-evenly" className="container_l">
@@ -136,7 +159,7 @@ export default function Analysis_xl() {
                             checked={filterToggle}
                             checkedChildren={<CheckOutlined />}
                             unCheckedChildren={<CloseOutlined />}
-                            onChange={(checked) => setFilterToggle(checked)}
+                            onChange={handleFilterToggle}
                             defaultChecked
                         />
                     </Space>
