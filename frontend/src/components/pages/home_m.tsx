@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 
+
 export default function Home_M() {
     return (
         <div className="">

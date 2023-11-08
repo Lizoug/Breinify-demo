@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 export default function Home_S() {
     return (
         <div className="">
-            <h2 className="Box-Design">Embeddings</h2>
+            <h2 className="Box-Design paragraph-small">Embeddings</h2>
             <Row justify={"center"} className="">
 
                     <p className="Box-Design">
@@ -28,7 +28,7 @@ export default function Home_S() {
             </Row>
             <Row className="">
                 {/*<h2 className="">TEST?</h2>*/}
-                <p className="Box-Design">
+                <p className="Box-Design paragraph-small">
                     Our embedding visualization tool opens doors to the world of embedding representation and allows you to engage with the embeddings and discover insights and knowledge. Let's delve into the captivating world of embeddings and uncover why they are a game-changer for e-commerce.
                     <br />
                     <br />

@@ -91,6 +91,9 @@ body {
   padding: 20px;
   overflow: hidden;
 }
+.paragraph-small {
+  font-size: 12px;
+}
 h2 {
   color: #333;
   font-size: 2em;
@@ -433,7 +436,10 @@ ul li a:hover {
   display: block;
   margin-bottom: 5px;
 }
-
+.footer-logo {
+  width: 50px;  /* Change this value to the desired width */
+  height: auto; /* This ensures the aspect ratio is maintained */
+}
 @keyframes App-logo-spin_l {
   from {
     transform: rotate(0deg);
