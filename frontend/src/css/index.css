@@ -310,7 +310,14 @@ ul li a:hover {
   flex-direction: column;
 
 }
+.titleStyle-home-l {
+  font-size: 32px;
+  font-weight: bold;
+}
 
+.textStyle-home-l {
+  font-size: 18px;
+}
 .B-history_xl {
   overflow-y: auto;
   display: flex;
