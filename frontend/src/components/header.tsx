@@ -36,7 +36,7 @@ export default function PageHeader() {
     return (
         <div className="header">
             <Row>
-                <Col className="header-tabs" span={24}>
+                <Col span={24}>
                     <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
                 </Col>
             </Row>

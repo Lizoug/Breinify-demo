@@ -1,12 +1,13 @@
 :root {
   --color-smooth-white: #F5F5F5;
-  --color-soothing-dark-blue: #1C283C;
+  --color-white: white;
+  --color-soothing-dark-blue: #31525B;
   --color-blazing-yellow: #FEEAA1;
   --color-summer-yellow: #FDD45B;
   --color-sunrise-orange: #FDB95D;
-  --color-autumn-orange: #FEA95E;
+  --color-autumn-orange: #FFA101;
   --color-sunset-orange: #FF7D65;
-  --color-fire-berry-pink: #FF5079;
+  --color-baby-blue-pink: #B3DEE5;
   --color-leaf-green: #C0DE3A;
   --color-forest-green: #A9D168;
 }
@@ -36,14 +37,14 @@ body {
 }
 
 .header {
-  background-color: white;
+  background-color: var(--color-white);
   position: sticky;
   top: 0px;
   z-index: 1;
   width: 100%;
 }
 .footer {
-  background-color: #31525B;
+  background-color: var(--color-soothing-dark-blue);
 
 }
 .social-links {
@@ -54,7 +55,7 @@ body {
 
 
 .footer-link:hover {
-  color: #FFA101;
+  color: var(--color-autumn-orange);
 }
 
 .App {
@@ -75,7 +76,7 @@ body {
 
 .container {
   height: 100vh;
-  background-color: #B3DEE5;
+  background-color: var(--color-baby-blue-pink);
   padding-top: 50px;
 }
 .Box-Design{
@@ -89,7 +90,34 @@ body {
   border: 1px solid #ccc;
   padding: 20px;
   overflow: hidden;
+}
+h2 {
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
 
+
+ul {
+  list-style-type: none; /* removes default list styling */
+  padding-left: 20px; /* adds some padding inside the list */
+}
+
+ul li {
+  margin-bottom: 5px; /* adds space between list items */
+}
+
+ul li a {
+  text-decoration: none;
+  color: #1a0dab;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+.padding-left-right-20{
+  padding-right: 20px;
 }
 .padding-bottom-20{
   padding-bottom: 20px;
