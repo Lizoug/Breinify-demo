@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 
-export default function Home_Xss() {
+export default function Home_S() {
     return (
         <div className="">
             <h2 className="Box-Design">Embeddings</h2>
