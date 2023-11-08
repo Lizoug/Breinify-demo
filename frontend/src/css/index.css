@@ -318,6 +318,10 @@ ul li a:hover {
 .textStyle-home-l {
   font-size: 18px;
 }
+
+.textStyle-home-xl {
+  font-size: 36px;
+}
 .B-history_xl {
   overflow-y: auto;
   display: flex;

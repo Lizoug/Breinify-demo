@@ -3,7 +3,8 @@ import {useMediaQuery} from "react-responsive";
 import Home_S from "./home_s";
 import Home_M from "./home_m";
 import Home_L from "./home_l";
-//import Home_Xl from "./home_xl";
+import Home_Xl from "./home_xl";
+import Home from "./home";
 
 
 
@@ -16,6 +17,6 @@ export default function Size_home() {
     if (size_s) return <Home_S />;
     if (size_m) return <Home_M />;
     if (size_l) return <Home_L />;
-    //if (size_xl) return <Home_Xl />
-    return <Home_M />;
+    if (size_xl) return <Home_Xl />
+    return <Home_Xl />;
 }
