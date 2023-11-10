@@ -430,16 +430,17 @@ ul li a:hover {
 }
 
 .footer-link_l {
-  color: #FAE6B1;
+  color: var(--color-white);
   text-decoration: none;
   font-size: 16px;
   display: block;
   margin-bottom: 5px;
 }
 .footer-logo {
-  width: 50px;  /* Change this value to the desired width */
+  width: 80px;  /* Change this value to the desired width */
   height: auto; /* This ensures the aspect ratio is maintained */
 }
+
 @keyframes App-logo-spin_l {
   from {
     transform: rotate(0deg);

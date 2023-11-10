@@ -1,6 +1,6 @@
 import React from "react";
 import {Row, Col} from 'antd';
-import {MailOutlined, LinkedinOutlined, GithubOutlined} from '@ant-design/icons';
+import {MailOutlined, LinkedinOutlined, GithubOutlined, InstagramOutlined} from '@ant-design/icons';
 import {useMediaQuery} from "react-responsive";
 import logo_footer from "./TMDT_Logo_small.png";
 
@@ -35,32 +35,35 @@ function PageFooterXXL() {
                 </Col>
                 <Col flex={1}>
                     <Row>
-                        <h6 className="yellow-text">Über Foxes & Hedgehogs</h6>
+                        <h6 className="footer-title">Über TMDT</h6>
                     </Row>
                     <Row>
-                        <a className="a-footer" href="/impressum">Impressum</a>
+                        <a className="footer-link_l" href="/impressum">Impressum</a>
                     </Row>
                     <Row>
-                        <a className="a-footer" href="/datenschutz">Datenschutzerklärung</a>
+                        <a className="footer-link_l" href="/datenschutz">Datenschutzerklärung</a>
                     </Row>
                 </Col>
                 <Col flex={1}>
                     <Row>
-                        <h6 className="yellow-text">Kontakt</h6>
+                        <h6 className="footer-title">Kontakt</h6>
                     </Row>
                     <Row align="middle">
-                        <MailOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="a-footer" href="mailto:kontakt@foxeshedgehogs.de">kontakt@foxeshedgehogs.de</a>
+                        <MailOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="tmdtinfo@uni-wuppertal.de">tmdtinfo@uni-wuppertal.de</a>
                     </Row>
                 </Col>
                 <Col flex={1}>
                     <Row>
-                        <h6 className="yellow-text">Follow Us!</h6>
+                        <h6 className="footer-title">Follow Us!</h6>
                     </Row>
                     <Row align="middle">
-                        <LinkedinOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="a-footer" href="https://www.linkedin.com/company/foxes-hedgehogs/">LinkedIn</a>
+                        <LinkedinOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="https://www.linkedin.com/company/tmdt/mycompany//">LinkedIn</a>
                     </Row>
                     <Row align="middle">
-                        <GithubOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="a-footer" href="https://github.com/tmdt-buw">GitHub</a>
+                        <GithubOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="https://github.com/tmdt-buw">GitHub</a>
+                    </Row>
+                    <Row align="middle">
+                        <InstagramOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="https://www.instagram.com/tmdt_wuppertal/">Instagram</a>
                     </Row>
                 </Col>
                 <Col flex={6}> </Col>
@@ -78,32 +81,35 @@ function PageFooterLG() {
                 </Col>
                 <Col flex={1}>
                     <Row>
-                        <h6 className="yellow-text">Über Foxes & Hedgehogs</h6>
+                        <h6 className="footer-title">Über TMDTs</h6>
                     </Row>
                     <Row>
-                        <a className="a-footer" href="/impressum">Impressum</a>
+                        <a className="footer-link_l" href="/impressum">Impressum</a>
                     </Row>
                     <Row>
-                        <a className="a-footer" href="/datenschutz">Datenschutzerklärung</a>
+                        <a className="footer-link_l" href="/datenschutz">Datenschutzerklärung</a>
                     </Row>
                 </Col>
                 <Col flex={1}>
                     <Row>
-                        <h6 className="yellow-text">Kontakt</h6>
+                        <h6 className="footer-title">Kontakt</h6>
                     </Row>
                     <Row align="middle">
-                        <MailOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="a-footer" href="mailto:kontakt@foxeshedgehogs.de">kontakt@foxeshedgehogs.de</a>
+                        <MailOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="tmdtinfo@uni-wuppertal.de">kontakt@foxeshedgehogs.de</a>
                     </Row>
                 </Col>
                 <Col flex={1}>
                     <Row>
-                        <h6 className="yellow-text">Follow Us!</h6>
+                        <h6 className="footer-title">Follow Us!</h6>
                     </Row>
                     <Row align="middle">
-                        <LinkedinOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="a-footer" href="https://www.linkedin.com/company/foxes-hedgehogs/">LinkedIn</a>
+                        <LinkedinOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="https://www.linkedin.com/company/foxes-hedgehogs/">LinkedIn</a>
                     </Row>
                     <Row align="middle">
-                        <GithubOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="a-footer" href="https://github.com/tmdt-buw">GitHub</a>
+                        <GithubOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="https://github.com/tmdt-buw">GitHub</a>
+                    </Row>
+                    <Row align="middle">
+                        <InstagramOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="https://www.instagram.com/tmdt_wuppertal/">Instagram</a>
                     </Row>
                 </Col>
             </Row>
@@ -121,30 +127,33 @@ function PageFooterSM() {
                 <Col flex={1}> </Col>
                 <Col flex={1}>
                     <Row>
-                        <h6 className="yellow-text">Über Foxes & Hedgehogs</h6>
+                        <h6 className="footer-title">Über Foxes & Hedgehogs</h6>
                     </Row>
                     <Row>
-                        <a className="a-footer" href="/impressum">Impressum</a>
+                        <a className="footer-link_l" href="/impressum">Impressum</a>
                     </Row>
                     <Row>
-                        <a className="a-footer" href="/datenschutz">Datenschutzerklärung</a>
+                        <a className="footer-link_l" href="/datenschutz">Datenschutzerklärung</a>
                     </Row>
                     <Row className="padded-t25">
-                        <h6 className="yellow-text">Kontakt</h6>
+                        <h6 className="footer-title">Kontakt</h6>
                     </Row>
                     <Row align="middle">
-                        <MailOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="a-footer" href="mailto:kontakt@foxeshedgehogs.de">kontakt@foxeshedgehogs.de</a>
+                        <MailOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="tmdtinfo@uni-wuppertal.de">kontakt@foxeshedgehogs.de</a>
                     </Row>
                 </Col>
                 <Col flex={1}>
                     <Row>
-                        <h6 className="yellow-text">Follow Us!</h6>
+                        <h6 className="footer-title">Follow Us!</h6>
                     </Row>
                     <Row align="middle">
-                        <LinkedinOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="a-footer" href="https://www.linkedin.com/company/foxes-hedgehogs/">LinkedIn</a>
+                        <LinkedinOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="https://www.linkedin.com/company/tmdt/mycompany//">LinkedIn</a>
                     </Row>
                     <Row align="middle">
-                        <GithubOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="a-footer" href="https://github.com/tmdt-buw">GitHub</a>
+                        <GithubOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="https://github.com/tmdt-buw">GitHub</a>
+                    </Row>
+                    <Row align="middle">
+                        <InstagramOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="https://www.instagram.com/tmdt_wuppertal/">Instagram</a>
                     </Row>
                 </Col>
                 <Col flex={1}> </Col>
@@ -162,28 +171,31 @@ function PageFooterXS() {
                         <img src={logo_footer} className='footer-logo' alt="Logo"/>
                     </Row>
                     <Row>
-                        <h6 className="h6 yellow-text">Über Foxes & Hedgehogs</h6>
+                        <h6 className="footer-title">Über TMDT</h6>
                     </Row>
                     <Row>
-                        <a className="a-footer" href="/impressum">Impressum</a>
+                        <a className="footer-link_l" href="/impressum">Impressum</a>
                     </Row>
                     <Row>
-                        <a className="a-footer" href="/datenschutz">Datenschutzerklärung</a>
+                        <a className="footer-link_l" href="/datenschutz">Datenschutzerklärung</a>
                     </Row>
                     <Row className="padded-t25">
-                        <h6 className="h6 yellow-text">Kontakt</h6>
+                        <h6 className="footer-title">Kontakt</h6>
                     </Row>
                     <Row align="middle">
-                        <MailOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="a-footer" href="mailto:kontakt@foxeshedgehogs.de">kontakt@foxeshedgehogs.de</a>
+                        <MailOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="tmdtinfo@uni-wuppertal.de">kontakt@foxeshedgehogs.de</a>
                     </Row>
                     <Row className="padded-t25">
-                        <h6 className="h6 yellow-text">Follow Us!</h6>
+                        <h6 className="footer-title">Follow Us!</h6>
                     </Row>
                     <Row align="middle">
-                        <LinkedinOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="a-footer" href="https://www.linkedin.com/company/foxes-hedgehogs/">LinkedIn</a>
+                        <LinkedinOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="https://www.linkedin.com/company/tmdt/mycompany//">LinkedIn</a>
                     </Row>
                     <Row align="middle">
-                        <GithubOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="a-footer" href="https://github.com/tmdt-buw">GitHub</a>
+                        <GithubOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="https://github.com/tmdt-buw">GitHub</a>
+                    </Row>
+                    <Row align="middle">
+                        <InstagramOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="https://www.instagram.com/tmdt_wuppertal/">Instagram</a>
                     </Row>
                 </Col>
             </Row>
