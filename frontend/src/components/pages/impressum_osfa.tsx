@@ -15,23 +15,23 @@ export default function ImpressumOSFA() {
                     <h1>Impressum</h1>
                     <h2>Angaben gemäß §5 TMG</h2>
                     <p>
-                        Foxes & Hedgehogs UG (haftungsbeschränkt)
+                        Lehrstuhl für Technologien und Management der Digitalen Transformation
                         <br/>
-                        Scheibenstr. 18, 40479 Düsseldorf
+                        Bergische Universität Wuppertal
                         <br/>
-                        Amtsgericht Düsseldorf HRB 97928
+                        Gaußstraße 20
                         <br/>
-                        Steuernummer: 103/5727/3960
+                        42119 Wuppertal
                     </p>
                     <p>
                         <b>Vertreten durch:</b>
                         <br/>
-                        Dr.-Ing. Richard Meyes
+                        Tobias Meisen
                     </p>
 
                     <h2>Kontakt</h2>
                     <p>
-                        E-Mail: kontakt@foxeshedgehogs.de
+                        E-Mail:  tmdtinfo@uni-wuppertal.de
                     </p>
 
                     <h2>Haftung für Inhalte</h2>

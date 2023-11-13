@@ -81,10 +81,6 @@ body {
 }
 .Box-Design{
   background-color: #fafafa;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  margin-right: 20px;
-  margin-left: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid #ccc;
@@ -124,6 +120,10 @@ ul li a:hover {
 }
 .padding-bottom-20{
   padding-bottom: 20px;
+}
+
+.padding-top-20{
+  padding-top: 20px;
 }
 .Box-Design-xxs{
   height: 100px;
@@ -437,8 +437,8 @@ ul li a:hover {
   margin-bottom: 5px;
 }
 .footer-logo {
-  width: 80px;  /* Change this value to the desired width */
-  height: auto; /* This ensures the aspect ratio is maintained */
+  width: auto;  /* Change this value to the desired width */
+  height: 100px; /* This ensures the aspect ratio is maintained */
 }
 
 @keyframes App-logo-spin_l {

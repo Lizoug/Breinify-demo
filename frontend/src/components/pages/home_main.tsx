@@ -9,14 +9,17 @@ import Home from "./home";
 
 
 export default function Size_home() {
-    const size_s = useMediaQuery({query: "(min-device-width: 479px) and (max-device-width: 768px)"});
+    const size_s = useMediaQuery({query: "(max-device-width: 768px)"});
     const size_m = useMediaQuery({query: "(min-device-width: 769px) and (max-device-width: 1024px"});
     const size_l = useMediaQuery({query: "(min-device-width: 1025px) and (max-device-width: 1599px)"});
-    const size_xl= useMediaQuery({query: "(min-device-width: 1600px) and (max-device-width: 1919px)"});
+    const size_xl= useMediaQuery({query: "(min-device-width: 1600px)"});
 
-    if (size_s) return <Home_S />;
-    if (size_m) return <Home_M />;
-    if (size_l) return <Home_L />;
-    if (size_xl) return <Home_Xl />
-    return <Home_Xl />;
+    return (
+        <div>
+            {size_s && <Home_S />}
+            {size_m && <Home_M />}
+            {size_l && <Home_L />}
+            {size_xl && <Home_Xl />}
+        </div>
+    )
 }

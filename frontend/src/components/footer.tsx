@@ -2,7 +2,7 @@ import React from "react";
 import {Row, Col} from 'antd';
 import {MailOutlined, LinkedinOutlined, GithubOutlined, InstagramOutlined} from '@ant-design/icons';
 import {useMediaQuery} from "react-responsive";
-import logo_footer from "./TMDT_Logo_small.png";
+import logo_footer from "./Picture2.png";
 
 export default function PageFooter() {
     const size_xxs = useMediaQuery({query: "(max-device-width: 479px)"});
