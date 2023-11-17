@@ -95,7 +95,7 @@ function PageFooterLG() {
                         <h6 className="footer-title">Kontakt</h6>
                     </Row>
                     <Row align="middle">
-                        <MailOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="tmdtinfo@uni-wuppertal.de">kontakt@foxeshedgehogs.de</a>
+                        <MailOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="tmdtinfo@uni-wuppertal.de">tmdtinfo@uni-wuppertal.de</a>
                     </Row>
                 </Col>
                 <Col flex={1}>
@@ -139,7 +139,7 @@ function PageFooterSM() {
                         <h6 className="footer-title">Kontakt</h6>
                     </Row>
                     <Row align="middle">
-                        <MailOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="tmdtinfo@uni-wuppertal.de">kontakt@foxeshedgehogs.de</a>
+                        <MailOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="tmdtinfo@uni-wuppertal.de">tmdtinfo@uni-wuppertal.de</a>
                     </Row>
                 </Col>
                 <Col flex={1}>
@@ -183,7 +183,7 @@ function PageFooterXS() {
                         <h6 className="footer-title">Kontakt</h6>
                     </Row>
                     <Row align="middle">
-                        <MailOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="tmdtinfo@uni-wuppertal.de">kontakt@foxeshedgehogs.de</a>
+                        <MailOutlined style={{color: "whitesmoke", paddingRight: "10px"}}/> <a className="footer-link_l" href="tmdtinfo@uni-wuppertal.de">tmdtinfo@uni-wuppertal.de</a>
                     </Row>
                     <Row className="padded-t25">
                         <h6 className="footer-title">Follow Us!</h6>
